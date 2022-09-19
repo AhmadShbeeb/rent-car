@@ -5,7 +5,7 @@ import {
   Button,
   Center,
   Stack,
-  Text,
+  Title,
 } from '@mantine/core'
 import { IconCaretRight, IconSearch } from '@tabler/icons'
 import Image from 'next/image'
@@ -22,16 +22,32 @@ const HeroComponent = () => {
     { label: 'Pulp Fiction', year: 1994 },
   ]
   return (
-    <Box sx={{ maxHeight: 800 }}>
-      <BackgroundImage src='/hero.jpg' radius='sm'>
-        <Center p='md'>
-          <Text color='#fff'>Al Rafaheia Rent</Text>
-        </Center>
-        <Center p='md'>
-          <Text color='#fff'>Welcome To New Type Of Luxury</Text>
-        </Center>
+    // <Box sx={{ maxWidth: 300, maxHeight: '400' }} mx='auto' my='auto'>
+    // <Box>
+    <BackgroundImage
+      src='/hero.jpg'
+      radius='sm'
+      sx={{
+        // backgroundSize: 'auto 100%',
+        // height: '200px',
+        // width: '100%',
+        // backgroundSize: 'contain',
+        // backgroundRepeat: 'no-repeat',
+        objectFit: 'cover',
+        height: '400px',
+        // filter: 'blur(1px)',
+        // width: '100%',
+      }}
+    >
+      <Stack align='center' spacing='xl'>
+        <Title order={1} weight={400} align='center' color='#E62626'>
+          Al Rafaheia Rent
+        </Title>
+        <Title order={2} weight={400} align='center' color='#3a3f44'>
+          Welcome To New Type Of Luxury
+        </Title>
 
-        <Center>
+        <Center sx={{ marginTop: '60px' }}>
           <Autocomplete
             icon={<IconSearch />}
             radius='md'
@@ -52,8 +68,9 @@ const HeroComponent = () => {
             View All Cars
           </Button>
         </Center>
-      </BackgroundImage>
-    </Box>
+      </Stack>
+    </BackgroundImage>
+    // </Box>
   )
 }
 export default HeroComponent
